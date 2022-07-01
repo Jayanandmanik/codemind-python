@@ -1,18 +1,26 @@
-n=int(input())
-for i in range (2,(n//2)+1):
-    if n%i==0:
-        print("Not Mega Prime")
-        break
-else:
-    d=0
-    pd=0
-    while n:
-        r=n%10
-        n=n//10
-        d+=1
-        if(r==2 or r==3 or r==5 or r==7):
-            pd+=1
-    if(pd==d):
-        print("Mega Prime")
+def prime(n):
+    if n==1:
+        return 0
     else:
-        print("Not Mega Prime")
+        for i in range(2,int(n**0.5)+1):
+            if n%i==0:
+                return 0
+        else:
+            return 1
+            
+x=int(input())
+temp=x
+if prime(temp)==1:
+    while(x>0):
+        res=x%10
+        if prime(res)==0:
+            print("Not Mega Prime")
+            break
+        x=x//10
+    else:
+        print("Mega Prime")
+else:
+    print("Not Mega Prime")
+            
+            
+    
